@@ -32,6 +32,9 @@ React에서 useState는 많이 사용하면 안 됩니다.
 - patch 함수로 부분 업데이트: setX(prev => ({ ...prev, ...patch }))
 
 검증은 submit 핸들러에서 formProps 기준으로 수행하세요.
+
+입력값·민감 데이터는 alert/confirm/prompt, toast, 인라인 message에 절대 넣지 마세요.
+에러는 `lib/user-facing-error.ts`의 safeApiErrorMessage로만 표시하세요.
 ```
 
 ---
@@ -130,10 +133,14 @@ if (Object.keys(errors).length) {
 
 로그인·회원가입 폼 적용 예:
 
-- `frontend/app/login/auth-forms.tsx`
-  - `ui`, `login`, `signup` 객체 상태
-  - `handleLogin` / `handleSignup` + `FormData`
-  - `validateLogin` / `validateSignup`
+- `frontend/lib/form-status.ts` — `FormStatus`, `patchState`
+- `frontend/lib/user-facing-error.ts` — API 에러를 안전한 문장으로 (`safeApiErrorMessage`)
+- `frontend/app/login/auth-forms.tsx` — `ui`, `login`, `signup` + `FormData`
+- `frontend/components/gemini-chat-panel.tsx` — `ui`, `chat` + form submit
+- `frontend/components/mova/mova-ai-chat-bar.tsx` — `chat` + form submit
+- `frontend/components/mova/mova-search-bar.tsx` — `search` 객체 (디바운스 검색)
+- `frontend/components/header-weather.tsx` — `current`, `forecast` 객체
+- `frontend/components/mova/title/mova-title-view.tsx` — `ui` + 리뷰 `FormData`
 
 새 폼·설정 화면·모달 폼을 추가·리팩터할 때 위 파일과 **동일한 패턴**을 따른다.
 
@@ -147,10 +154,46 @@ if (Object.keys(errors).length) {
 
 ---
 
-## 6. 체크리스트 (PR·리뷰 전)
+## 6. 입력값 노출 금지 (`alert` · 에러 메시지)
+
+### 금지
+
+- `window.alert()` / `confirm()` / `prompt()` — **사용하지 않는다** (디버그·데모 포함).
+- alert·toast·`FormStatus.message`·채팅 `error`에 **`formProps` 전체**, **비밀번호**, **이메일**, **API 요청 body**를 넣지 않는다.
+- 에러 처리에서 `JSON.stringify(body)`, `JSON.stringify(formProps)`, `String(unknownDetail)` 로 객체 전체를 UI에 뿌리지 않는다.
+
+### ✅ 권장
+
+- 성공/실패는 폼 아래 **고정 문구** 또는 `errors` 필드별 메시지 (`auth-forms.tsx` 패턴).
+- API 실패 시 `safeApiErrorMessage(detail, fallback, status)` 사용 (`frontend/lib/user-facing-error.ts`).
+- 서버 `detail`이 문자열일 때만 그대로 표시하고, 그 외에는 **짧은 fallback** (예: `"로그인에 실패했습니다."`).
+
+```tsx
+import { safeApiErrorMessage } from "@/lib/user-facing-error"
+
+patchLogin({
+  message: safeApiErrorMessage(body.detail, "로그인에 실패했습니다.", res.status),
+})
+```
+
+### ❌ 지양
+
+```tsx
+alert(JSON.stringify(formProps))
+alert(`입력: ${formProps.password}`)
+patchSignup({ message: String(body.detail) }) // detail이 객체일 때 [object Object] 또는 payload 노출
+```
+
+`role="alert"` 가 붙은 `<p>` 는 **접근성용 라벨**이며, 브라우저 `alert()` 와 무관하다.
+
+---
+
+## 7. 체크리스트 (PR·리뷰 전)
 
 - [ ] 폼 필드마다 `useState`가 있지 않은가?
 - [ ] submit에서 `FormData` + `Object.fromEntries`를 쓰는가?
 - [ ] `errors` / `submitting` / `message`가 한 객체로 묶였는가?
 - [ ] `patchX(partial)` 형태로 상태 업데이트가 일관적인가?
 - [ ] input에 `name`이 있고, 불필요한 `value`/`onChange`가 제거되었는가?
+- [ ] `alert` / `confirm` / `prompt` 가 없고, 에러에 입력값·JSON payload가 없는가?
+- [ ] API 에러는 `safeApiErrorMessage` 또는 필드별 `errors`만 쓰는가?

@@ -22,6 +22,7 @@
 | 영역 | 경로 | 적용 대상 |
 |------|------|-----------|
 | **백엔드 (FastAPI)** | [`DevOps/Backend/PYTHON_FASTAPI_RULES.md`](DevOps/Backend/PYTHON_FASTAPI_RULES.md) | `backend/`, `backend/apps/` |
+| **백엔드 (엔티티·PK)** | [`DevOps/Backend/ENTITY_RULE.md`](DevOps/Backend/ENTITY_RULE.md) | `backend/**/models/`, DB 스키마 |
 | **프론트 (React)** | [`DevOps/Frontend/REACT_RULES.md`](DevOps/Frontend/REACT_RULES.md) | `frontend/` |
 | **타이타닉 도메인** | [`타이타닉 개발/james_fastapi_context.md`](타이타닉%20개발/james_fastapi_context.md) | `backend/apps/titanic/` |
 

@@ -11,10 +11,10 @@
             "id": "38c0fad93a6b361a",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "새 탭"
+              "icon": "lucide-git-fork",
+              "title": "그래프 뷰"
             }
           }
         ]
@@ -176,6 +176,9 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "38c0fad93a6b361a",
-  "lastOpenFiles": []
+  "active": "352b2fce2efa806c",
+  "lastOpenFiles": [
+    "DevOps/Backend/ENTITY_RULE.md",
+    "DevOps/Backend/ENTITY_RULES.md"
+  ]
 }
