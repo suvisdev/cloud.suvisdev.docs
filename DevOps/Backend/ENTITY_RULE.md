@@ -98,10 +98,11 @@ title_id: Mapped[int] = mapped_column(ForeignKey("mova_titles.id"), nullable=Fal
 다음 모델은 모두 `id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)` 패턴을 따른다.
 
 - `backend/apps/mova/app/models/base.py` — `MovaModel` (공통 `id` PK)
-- `backend/apps/mova/app/models/audience_model.py` — `chat_intents`
+- `backend/apps/mova/app/models/chat_model.py` — `chat`
 - `backend/apps/mova/app/models/movies_model.py` — `movies`
 - `backend/apps/mova/app/models/actors_model.py` — `actors`
-- `backend/apps/mova/app/models/users_model.py` — `users` (Mova 취향 프로필)
+- `backend/apps/secom/app/models/user_model.py` — `users` (회원가입·로그인)
+- `backend/apps/secom/app/models/user_group_model.py` — `user_groups`
 
 새 테이블 추가 시 위 파일과 **동일한 PK 규칙**을 적용하고, `database.py` 의 `create_tables` 에 모델 import를 등록한다.
 

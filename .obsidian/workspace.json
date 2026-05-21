@@ -11,10 +11,14 @@
             "id": "38c0fad93a6b361a",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "그래프 뷰"
+              "type": "markdown",
+              "state": {
+                "file": "DevOps/Backend/MOVA_ERD.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MOVA_ERD"
             }
           }
         ]
@@ -176,9 +180,12 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "352b2fce2efa806c",
+  "active": "38c0fad93a6b361a",
   "lastOpenFiles": [
+    "DevOps/Backend/PYTHON_FASTAPI_RULES.md",
+    "DevOps/Backend/MOVA_ERD.md",
     "DevOps/Backend/ENTITY_RULE.md",
+    "DevOps/Backend/TITANIC_ERD.md",
     "DevOps/Backend/ENTITY_RULES.md"
   ]
 }
