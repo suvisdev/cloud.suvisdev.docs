@@ -182,9 +182,11 @@
   },
   "active": "38c0fad93a6b361a",
   "lastOpenFiles": [
-    "DevOps/Backend/PYTHON_FASTAPI_RULES.md",
-    "DevOps/Backend/MOVA_ERD.md",
+    "SUVISDEV_RULES.md",
+    "DevOps/Frontend/SUVISDEV_RULES.md",
     "DevOps/Backend/ENTITY_RULE.md",
+    "DevOps/Backend/MOVA_ERD.md",
+    "DevOps/Backend/PYTHON_FASTAPI_RULES.md",
     "DevOps/Backend/TITANIC_ERD.md",
     "DevOps/Backend/ENTITY_RULES.md"
   ]

@@ -102,7 +102,7 @@ title_id: Mapped[int] = mapped_column(ForeignKey("mova_titles.id"), nullable=Fal
 - `backend/apps/mova/app/models/movies_model.py` — `movies`
 - `backend/apps/mova/app/models/actors_model.py` — `actors`
 - `backend/apps/secom/app/models/user_model.py` — `users` (회원가입·로그인)
-- `backend/apps/secom/app/models/user_group_model.py` — `user_groups`
+- `backend/apps/secom/app/models/user_model.py` — `users` (`role` 컬럼)
 
 새 테이블 추가 시 위 파일과 **동일한 PK 규칙**을 적용하고, `database.py` 의 `create_tables` 에 모델 import를 등록한다.
 
