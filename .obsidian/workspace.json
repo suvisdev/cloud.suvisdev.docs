@@ -11,14 +11,12 @@
             "id": "38c0fad93a6b361a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "DevOps/Backend/MOVA_ERD.md",
-                "mode": "source",
-                "source": false
+                "file": "DevOps/Backend/mova-erd.png"
               },
-              "icon": "lucide-file",
-              "title": "MOVA_ERD"
+              "icon": "lucide-image",
+              "title": "mova-erd"
             }
           }
         ]
@@ -182,12 +180,14 @@
   },
   "active": "38c0fad93a6b361a",
   "lastOpenFiles": [
+    "DevOps/Backend/MOVA_ERD.md",
+    "DevOps/Backend/mova-erd.png",
+    "DevOps/Backend/mova-erd.mmd",
+    "DevOps/Backend/ENTITY_RULE.md",
+    "DevOps/Backend/TITANIC_ERD.md",
+    "DevOps/Backend/PYTHON_FASTAPI_RULES.md",
     "SUVISDEV_RULES.md",
     "DevOps/Frontend/SUVISDEV_RULES.md",
-    "DevOps/Backend/ENTITY_RULE.md",
-    "DevOps/Backend/MOVA_ERD.md",
-    "DevOps/Backend/PYTHON_FASTAPI_RULES.md",
-    "DevOps/Backend/TITANIC_ERD.md",
     "DevOps/Backend/ENTITY_RULES.md"
   ]
 }
