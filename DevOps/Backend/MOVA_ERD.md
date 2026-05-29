@@ -22,7 +22,7 @@ Mermaid `erDiagram`은 속성·관계 라벨의 **따옴표·괄호·슬래시**
 
 ![Mova ERD](./mova-erd.png)
 
-편집용 Mermaid 소스: [`mova-erd.mmd`](./mova-erd.mmd) — Obsidian에서도 아래 블록으로 동일하게 렌더됩니다.
+다이어그램 Mermaid 소스는 **아래 코드 블록**이 단일 출처입니다. PNG는 미리보기용이며, 수정 후 필요하면 해당 블록에서 다시 export 하면 됩니다.
 
 ```mermaid
 ---
